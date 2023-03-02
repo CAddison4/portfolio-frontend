@@ -1,5 +1,5 @@
 <header>
-  <h1>{{ title }}</h1>
+  <h2>{{ title }}</h2>
 </header>
 <div [ngClass]="{ wrapper: true }">
   <div [ngClass]="{ sidebar: true }">
@@ -8,45 +8,54 @@
       <section>
         <div *ngIf="selectedCategory">{{ selectedCategory.name }}</div>
         <div *ngIf="selectedTag">{{ selectedTag.name }}</div>
-        <img
-          src="trash-icon.png"
-          alt="trash icon"
-          *ngIf="selectedCategory || selectedTag"
-          (click)="clearSelected()"
-        />
-        <!-- <button *ngIf="selectedCategory || selectedTag" (click)="clearSelected()"> -->
-        <!-- Delete
-        </button> -->
+        <p *ngIf="selectedCategory || selectedTag" (click)="clearSelected()">
+          &#128465;
+        </p>
       </section>
     </div>
 
     <div>
       <h2>Categories</h2>
-      <div
+      <article id="categories">
+        <app-categories
+          [selectedCategory]="selectedCategory"
+          (newCategoryFilterEvent)="handleCategoryClick($event)"
+        ></app-categories>
+      </article>
+      <!-- <div
         *ngFor="let category of categories"
         (click)="handleCategoryClick(category)"
       >
         {{ category.name }}
-      </div>
+      </div> -->
     </div>
     <div>
       <h2>Tags</h2>
-      <div *ngFor="let tag of tags" (click)="handleTagClick(tag)">
+      <article id="tag">
+        <app-tags
+          [selectedTag]="selectedTag"
+          (newTagFilterEvent)="handleTagClick($event)"
+        ></app-tags>
+      </article>
+      <!-- <div *ngFor="let tag of tags" (click)="handleTagClick(tag)">
         {{ tag.name }}
-      </div>
+      </div> -->
     </div>
   </div>
   <div [ngClass]="{ projectCards: true }">
-    <div
-      *ngFor="let project of projects"
-      [ngClass]="{
-        projectCard: true,
-        hidden:
-          (selectedCategory && selectedCategory.id !== project.category?.id) ||
-          (selectedTag && !project.tags?.includes(selectedTag))
-      }"
+    <app-projects
+      [selectedCategory]="selectedCategory"
+      (newCategoryFilterEvent)="handleCategoryClick($event)"
+      [selectedTag]="selectedTag"
+      (newTagFilterEvent)="handleTagClick($event)"
+    ></app-projects>
+    <!-- <div
+      *ngFor="let project of projects | projectFilter : selectedTag"
+      [class.hidden]="
+        selectedCategory && project.category?.id != selectedCategory.id
+      "
     >
-      <h2>{{ project.title }}</h2>
+      <h2>{{ project.title | uppercase }}</h2>
       <p>{{ project.excerpt }}</p>
       <p
         [ngClass]="{
@@ -65,7 +74,7 @@
       <p *ngFor="let tag of project.tags" (click)="handleTagClick(tag)">
         {{ tag.name }}
       </p>
-    </div>
+    </div> -->
   </div>
 </div>
 
