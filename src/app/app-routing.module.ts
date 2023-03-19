@@ -5,9 +5,11 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { CategoriesComponent } from './categories/categories.component';
 import { TagsComponent } from './tags/tags.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AboutPageComponent } from './about-page/about-page.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'about', component: AboutPageComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'projects/categories/:id', component: ProjectsComponent },
   { path: 'projects/tags/:id', component: ProjectsComponent },
