@@ -1,0 +1,41 @@
+<header>
+  <button type="button" routerLink="/projects">View Projects</button>
+</header>
+<div [ngClass]="{ projectWrapper: true }">
+  <article
+    [ngClass]="{
+      cardContainer: true
+    }"
+  >
+    <section>
+      <h2>About Me</h2>
+      <div>
+        <img [src]="'../../assets/images/profile.jpg'" [alt]="" />
+      </div>
+      <ng-template #sampleImage>
+        <img
+          [src]="'../../assets/images/sample-image.jpg'"
+          alt="Sample Image"
+        />
+      </ng-template>
+      <div [ngClass]="{ projectBody: true }">
+        <p>
+          My name is Cat, and I have recently completed the Software Systems
+          Developer certificate program at BCIT. The SSD program covered all the
+          fundamentals and more, whether it was learning Javascript and C# to
+          mastering frameworks like React and Angular. The SSD program also
+          emphasized the importance of teamwork, communication, and
+          problem-solving – all critical skills for a successful career in web
+          development.
+        </p>
+
+        <p>
+          As I embark on the next phase of my journey, I am excited to bring my
+          newly acquired skills to the workplace as a junior web developer. I am
+          eager to collaborate with other developers and contribute to
+          meaningful projects and grow my skills as a developer.
+        </p>
+      </div>
+    </section>
+  </article>
+</div>

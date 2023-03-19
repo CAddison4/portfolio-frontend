@@ -7,6 +7,10 @@ import { ProjectFilterPipe } from './project-filter.pipe';
 import { ProjectsComponent } from './projects/projects.component';
 import { TagsComponent } from './tags/tags.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +19,11 @@ import { CategoriesComponent } from './categories/categories.component';
     ProjectsComponent,
     TagsComponent,
     CategoriesComponent,
+    ProjectDetailComponent,
+    NavigationComponent,
+    HomePageComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

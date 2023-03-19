@@ -1,0 +1,42 @@
+<header>
+  <button type="button" (click)="goBack()">Back</button>
+</header>
+<div [ngClass]="{ projectWrapper: true }">
+  <article
+    *ngIf="project"
+    [ngClass]="{
+      cardContainer: true
+    }"
+  >
+    <section>
+      <h2>{{ project.title | uppercase }}</h2>
+      <div *ngIf="project.image; else sampleImage">
+        <img [src]="project.image" [alt]="project.title" />
+      </div>
+      <ng-template #sampleImage>
+        <img
+          [src]="'../../assets/images/sample-image.jpg'"
+          alt="Sample Image"
+        />
+      </ng-template>
+      <div [ngClass]="{ projectBody: true }" [innerHTML]="project.body"></div>
+    </section>
+    <footer>
+      <div
+        *ngIf="project.category"
+        routerLink="/projects/categories/{{ project.category.id }}"
+      >
+        Category: <span>{{ project.category.name }}</span>
+      </div>
+      <div *ngIf="project.tags?.length">
+        Tags:
+        <span
+          *ngFor="let tag of project.tags"
+          routerLink="/projects/tags/{{ tag.id }}"
+        >
+          {{ tag.name }}
+        </span>
+      </div>
+    </footer>
+  </article>
+</div>

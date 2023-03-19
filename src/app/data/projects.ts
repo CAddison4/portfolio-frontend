@@ -74,8 +74,23 @@ export const PROJECTS: Project[] = [
     category_id: null,
     created_at: '2023-02-23T19:07:22.000000Z',
     updated_at: '2023-02-23T19:07:22.000000Z',
-    category: null,
-    tags: [],
+    category: {
+      id: 3,
+      slug: 'full-stack',
+      name: 'Full Stack',
+    },
+    tags: [
+      {
+        id: 1,
+        slug: 'mysql',
+        name: 'MySQL',
+      },
+      {
+        id: 2,
+        slug: 'html',
+        name: 'HTML',
+      },
+    ],
   },
   {
     id: 4,
@@ -161,8 +176,8 @@ export const PROJECTS: Project[] = [
     url: null,
     slug: 'industry-project',
     published_date: '2023-02-22',
-    image: null,
-    thumb: null,
+    image: '../assets/images/sample-image-2.jpg',
+    thumb: '../assets/images/sample-thumb.jpg',
     category_id: 3,
     created_at: '2023-02-23T19:07:22.000000Z',
     updated_at: '2023-02-23T21:40:34.000000Z',
@@ -172,31 +187,5 @@ export const PROJECTS: Project[] = [
       name: 'Full Stack',
     },
     tags: [],
-  },
-  {
-    id: 9,
-    title: 'Hello',
-    excerpt: 'Some information',
-    body: 'Some more information',
-    url: null,
-    slug: 'hello',
-    published_date: '2023-02-20',
-    image: 'images/Screenshot_20230216_013252.png',
-    thumb: 'images/Screenshot_20230216_013252.png',
-    category_id: 1,
-    created_at: '2023-02-23T21:53:19.000000Z',
-    updated_at: '2023-02-23T21:53:19.000000Z',
-    category: {
-      id: 1,
-      slug: 'back-end',
-      name: 'Back End',
-    },
-    tags: [
-      {
-        id: 10,
-        slug: 'mysql',
-        name: 'MySQL',
-      },
-    ],
   },
 ];

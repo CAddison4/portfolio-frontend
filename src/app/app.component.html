@@ -1,83 +1,10 @@
 <header>
-  <h2>{{ title }}</h2>
+  <h1 routerLink="/">{{ title }}</h1>
+  <app-navigation></app-navigation>
 </header>
-<div [ngClass]="{ wrapper: true }">
-  <div [ngClass]="{ sidebar: true }">
-    <div [ngClass]="{ filterSection: true }">
-      <h2 *ngIf="selectedCategory || selectedTag">Filter</h2>
-      <section>
-        <div *ngIf="selectedCategory">{{ selectedCategory.name }}</div>
-        <div *ngIf="selectedTag">{{ selectedTag.name }}</div>
-        <p *ngIf="selectedCategory || selectedTag" (click)="clearSelected()">
-          &#128465;
-        </p>
-      </section>
-    </div>
-
-    <div>
-      <h2>Categories</h2>
-      <article id="categories">
-        <app-categories
-          [selectedCategory]="selectedCategory"
-          (newCategoryFilterEvent)="handleCategoryClick($event)"
-        ></app-categories>
-      </article>
-      <!-- <div
-        *ngFor="let category of categories"
-        (click)="handleCategoryClick(category)"
-      >
-        {{ category.name }}
-      </div> -->
-    </div>
-    <div>
-      <h2>Tags</h2>
-      <article id="tag">
-        <app-tags
-          [selectedTag]="selectedTag"
-          (newTagFilterEvent)="handleTagClick($event)"
-        ></app-tags>
-      </article>
-      <!-- <div *ngFor="let tag of tags" (click)="handleTagClick(tag)">
-        {{ tag.name }}
-      </div> -->
-    </div>
-  </div>
-  <div [ngClass]="{ projectCards: true }">
-    <app-projects
-      [selectedCategory]="selectedCategory"
-      (newCategoryFilterEvent)="handleCategoryClick($event)"
-      [selectedTag]="selectedTag"
-      (newTagFilterEvent)="handleTagClick($event)"
-    ></app-projects>
-    <!-- <div
-      *ngFor="let project of projects | projectFilter : selectedTag"
-      [class.hidden]="
-        selectedCategory && project.category?.id != selectedCategory.id
-      "
-    >
-      <h2>{{ project.title | uppercase }}</h2>
-      <p>{{ project.excerpt }}</p>
-      <p
-        [ngClass]="{
-          hidden: true
-        }"
-      >
-        {{ project.body }}
-      </p>
-      <p>{{ project.published_date }}</p>
-      <p
-        *ngIf="project.category != null"
-        (click)="handleCategoryClick(project.category)"
-      >
-        {{ project.category.name }}
-      </p>
-      <p *ngFor="let tag of project.tags" (click)="handleTagClick(tag)">
-        {{ tag.name }}
-      </p>
-    </div> -->
-  </div>
-</div>
-
+<main>
+  <router-outlet></router-outlet>
+</main>
 <footer>
   <p>&copy; {{ year }} Catherine Addison</p>
 </footer>

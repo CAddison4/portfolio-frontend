@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+/* write standard css resets: */
+
+html {
+  box-sizing: border-box;
+  min-height: 1000px;
+  background: linear-gradient(135deg, #cfd8dc, #b0bec5, #eceff1);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* write your own css: */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+/* write your own css: */

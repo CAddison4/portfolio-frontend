@@ -24,7 +24,7 @@ export class Year {
   styleUrls: ['./app.component.css', './app.projects.scss'],
 })
 export class AppComponent {
-  title = "Catherine Addison's Portfolio";
+  title = "Catherine's Portfolio";
 
   public year = new Year().year;
 
@@ -49,4 +49,5 @@ export class AppComponent {
     this.selectedTag = undefined;
   }
 }
+
 export { Project, Tag, Category };

@@ -1,3 +1,10 @@
-<div *ngFor="let tag of tags" (click)="handleTagClick(tag)">
-  {{ tag.name }}
+<div [ngClass]="{ tagSection: true }">
+  <h2>Tags</h2>
+  <div
+    *ngFor="let tag of tags"
+    routerLink="/projects/tags/{{ tag.id }}"
+    [ngClass]="{ tagName: true }"
+  >
+    {{ tag.name }}
+  </div>
 </div>

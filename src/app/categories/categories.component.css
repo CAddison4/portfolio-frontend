@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC");
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&display=swap");
+
+h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+.categoryName {
+  padding: 1px 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin: 5px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.521) 0px 0px 5px 0px;
+  font-family: "Archivo", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+}
+
+.categoryName:hover {
+  cursor: pointer;
+  background-color: #f1f1f1;
+  transform: scale(0.95);
+  font-weight: bold;
+}
+
+.categorySection {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+}

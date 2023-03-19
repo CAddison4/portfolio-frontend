@@ -1,0 +1,38 @@
+<div>
+  <button
+    class="btn-menu"
+    [ngClass]="{
+      show: showNav
+    }"
+    (click)="toggleMenu()"
+    #menuButton
+  >
+    <span class="btn-content" tabindex="-1">
+      <span class="bar" id="bar"></span>
+    </span>
+    <!-- end hamburger-menu-content -->
+  </button>
+  <nav
+    id="main-navigation"
+    [ngClass]="{
+      show: true
+    }"
+    *ngIf="showNav"
+    #navigationMenu
+  >
+    <ul>
+      <li><a routerLink="/" (click)="toggleMenu()">Home</a></li>
+      <li><a routerLink="/projects" (click)="toggleMenu()">Projects</a></li>
+      <li [ngClass]="{ hideFull: true }">
+        <a routerLink="/categories" (click)="toggleMenu()">Categories</a>
+      </li>
+      <li [ngClass]="{ hideFull: true }">
+        <a routerLink="/tags" (click)="toggleMenu()">Tags</a>
+      </li>
+    </ul>
+  </nav>
+  <ul [ngClass]="{ fullMenu: true }">
+    <li><a routerLink="/">Home</a></li>
+    <li><a routerLink="/projects">Projects</a></li>
+  </ul>
+</div>

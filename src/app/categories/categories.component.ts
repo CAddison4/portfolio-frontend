@@ -9,9 +9,11 @@ import { CategoryService } from '../category.service';
 export class CategoriesComponent {
   constructor(private categoryService: CategoryService) {}
   categories: Category[] = [];
+
   getCategories(): void {
     this.categories = this.categoryService.getCategories();
   }
+
   ngOnInit(): void {
     this.getCategories();
   }

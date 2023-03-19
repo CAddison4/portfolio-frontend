@@ -1,25 +1,75 @@
-<article
-  *ngFor="let project of projects | projectFilter : selectedTag"
-  [class.hidden]="
-    selectedCategory && project.category?.id != selectedCategory.id
-  "
->
-  <section>
-    <h2>{{ project.title | uppercase }}</h2>
-    <div>{{ project.excerpt }}</div>
-  </section>
-  <footer>
-    <div
-      *ngIf="project.category"
-      (click)="handleCategoryClick(project.category)"
-    >
-      Category: <span>{{ project.category.name }}</span>
+<div [ngClass]="{ pageWrapper: true }">
+  <div [ngClass]="{ wrapper: true }">
+    <div [ngClass]="{ sidebar: true }">
+      <div>
+        <div *ngFor="let category of selectedCategories">
+          <article id="filterCategories">
+            <h2>Filter</h2>
+            <div routerLink="/projects" [ngClass]="{ filterDisplay: true }">
+              {{ category.name }}
+            </div>
+          </article>
+        </div>
+        <div *ngFor="let tag of selectedTags">
+          <article id="filterTags">
+            <h2>Filter</h2>
+            <div routerLink="/projects" [ngClass]="{ filterDisplay: true }">
+              {{ tag.name }}
+            </div>
+          </article>
+        </div>
+        <article id="categories">
+          <app-categories></app-categories>
+        </article>
+      </div>
+      <div>
+        <article id="tag">
+          <app-tags></app-tags>
+        </article>
+      </div>
     </div>
-    <div *ngIf="project.tags?.length">
-      Tags:
-      <span *ngFor="let tag of project.tags" (click)="handleTagClick(tag)">
-        {{ tag.name }}
-      </span>
+  </div>
+  <div *ngIf="projects?.length; else noProjectsYet">
+    <div class="projectWrapper">
+      <article
+        routerLink="/projects/{{ project.id }}"
+        [ngClass]="{ cardContainer: true }"
+        *ngFor="let project of projects"
+      >
+        <section>
+          <h2>{{ project.title | uppercase }}</h2>
+          <div *ngIf="project.thumb; else sampleThumb">
+            <img [src]="project.thumb" [alt]="project.title" />
+          </div>
+          <ng-template #sampleThumb>
+            <img
+              [src]="'../../assets/images/sample-thumb.jpg'"
+              alt="Sample Thumb"
+            />
+          </ng-template>
+          <div [ngClass]="{ excerpt: true }">{{ project.excerpt }}</div>
+        </section>
+        <footer>
+          <div
+            *ngIf="project.category"
+            routerLink="/projects/categories/{{ project.category.id }}"
+          >
+            Category: <span>{{ project.category.name }}</span>
+          </div>
+          <div *ngIf="project.tags?.length">
+            Tags:
+            <span
+              *ngFor="let tag of project.tags"
+              routerLink="/projects/tags/{{ tag.id }}"
+            >
+              {{ tag.name }}
+            </span>
+          </div>
+        </footer>
+      </article>
     </div>
-  </footer>
-</article>
+  </div>
+  <ng-template #noProjectsYet>
+    <div class="noProjectsContainer">No projects... yet</div>
+  </ng-template>
+</div>
