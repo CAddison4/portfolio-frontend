@@ -25,7 +25,8 @@ h2 {
 }
 
 .sidebar {
-  margin-left: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
   width: fit-content;
 }
 .wrapper {

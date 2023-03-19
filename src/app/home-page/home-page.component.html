@@ -1,45 +1,43 @@
-<header>
-  <button type="button" routerLink="/projects">View Projects</button>
-</header>
-<div [ngClass]="{ projectWrapper: true }">
-  <article
-    [ngClass]="{
-      cardContainer: true
-    }"
-  >
-    <section>
-      <h2>About Me</h2>
-      <div>
-        <img [src]="'../../assets/images/profile.jpg'" [alt]="" />
-      </div>
-      <ng-template #sampleImage>
-        <img
-          [src]="'../../assets/images/sample-image.jpg'"
-          alt="Sample Image"
-        />
-      </ng-template>
-      <div [ngClass]="{ projectBody: true }">
-        <p>
-          Dessert fruitcake cheesecake chocolate cake cheesecake candy canes
-          topping. Cake oat cake candy sweet roll caramels jelly beans. Topping
-          cookie cheesecake caramels gummies fruitcake. Shortbread jelly beans
-          chocolate bar croissant soufflé chocolate cake. Donut bear claw wafer
-          icing pudding. Tart soufflé candy canes marshmallow cheesecake
-          liquorice gummies ice cream.
-        </p>
-
-        <p>
-          Gummi bears caramels powder carrot cake soufflé. Wafer donut carrot
-          cake icing apple pie. Brownie toffee dragée donut candy pie. Soufflé
-          cheesecake powder chocolate cake donut tiramisu. Chocolate chupa chups
-          candy canes topping soufflé marzipan cake pie oat cake. Chocolate
-          apple pie jelly-o apple pie lemon drops shortbread pastry pie
-          croissant. Gummi bears cheesecake shortbread candy gummi bears.
-          Cupcake sweet topping marzipan sweet tootsie roll. Chupa chups
-          caramels gummi bears bear claw macaroon cupcake. Icing tart chocolate
-          bar jelly beans toffee carrot cake apple pie.
-        </p>
-      </div>
-    </section>
-  </article>
+<div class="mainWrapper">
+  <div class="projectWrapper">
+    <h2 class="titleHeader">Feature Project</h2>
+    <article routerLink="/projects/8" [ngClass]="{ cardContainer: true }">
+      <section>
+        <h2>{{ projects[7].title | uppercase }}</h2>
+        <div *ngIf="projects[7].image; else sampleImage">
+          <img [src]="projects[7].image" [alt]="projects[7].title" />
+        </div>
+        <ng-template #sampleImage>
+          <img
+            [src]="'../../assets/images/sample-image.jpg'"
+            alt="Sample Image"
+          />
+        </ng-template>
+        <div
+          [ngClass]="{ projectBody: true }"
+          [innerHTML]="projects[7].body"
+        ></div>
+      </section>
+      <footer>
+        <div
+          *ngIf="projects[7].category"
+          routerLink="/projects/categories/{{ projects[7].category.id }}"
+        >
+          Category: <span>{{ projects[7].category.name }}</span>
+        </div>
+        <div *ngIf="projects[7].tags?.length">
+          Tags:
+          <span
+            *ngFor="let tag of projects[7].tags"
+            routerLink="/projects/tags/{{ tag.id }}"
+          >
+            {{ tag.name }}
+          </span>
+        </div>
+      </footer>
+    </article>
+    <header>
+      <button type="button" routerLink="/projects">View All Projects</button>
+    </header>
+  </div>
 </div>

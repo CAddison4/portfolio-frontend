@@ -135,7 +135,7 @@ article .tag:last-child {
   );
   margin: 10px;
   font-family: "Roboto", sans-serif;
-  width: 600px;
+  max-width: 600px;
   position: relative;
 }
 
