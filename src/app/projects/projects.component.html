@@ -30,11 +30,12 @@
     </div>
   </div>
   <div *ngIf="projects?.length; else noProjectsYet">
+    <!-- <div > -->
     <div class="projectWrapper">
       <article
         routerLink="/projects/{{ project.id }}"
-        [ngClass]="{ cardContainer: true }"
         *ngFor="let project of projects"
+        [ngClass]="{ cardContainer: true }"
       >
         <section>
           <h2>{{ project.title | uppercase }}</h2>
@@ -68,6 +69,7 @@
         </footer>
       </article>
     </div>
+    <!-- </div> -->
   </div>
   <ng-template #noProjectsYet>
     <div class="noProjectsContainer">No projects... yet</div>

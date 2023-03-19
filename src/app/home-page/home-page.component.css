@@ -30,23 +30,23 @@ header {
 }
 
 header button {
-  padding: 2px 20px;
-  margin-left: 15px;
-  /* margin-right: 10px; */
-  background-color: #0d5e8d;
-  color: white;
+  padding: 1px 15px;
+  padding-top: 4px;
   border-radius: 20px;
-  width: fit-content;
-  font-family: "Amatic SC", cursive;
-  font-weight: normal;
+  color: white;
+  background-color: #0d5e8d;
+  box-shadow: rgba(0, 0, 0, 0.521) 0px 0px 5px 0px;
+  font-family: "Special Elite", cursive;
+  font-size: 0.75rem;
+  margin-left: 10px;
 }
 
 header button:hover,
 header button:focus {
   background-color: #fd6633;
   cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: bold;
+  font-size: 0.7rem;
+  padding-top: 4px;
 }
 
 h2 {
@@ -56,6 +56,7 @@ h2 {
   z-index: 1;
   font-size: 40px;
 }
+
 /* Article styles */
 article {
   margin: 20px;

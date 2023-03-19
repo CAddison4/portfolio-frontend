@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Inconsolata");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Special+Elite:wght@400&display=swap");
 
 /* Global styles */
 body {
@@ -30,15 +31,18 @@ header {
 }
 
 header button {
-  padding: 2px 20px;
-  margin-left: 15px;
-  /* margin-right: 10px; */
-  background-color: #0d5e8d;
-  color: white;
+  padding: 1px 15px;
+  padding-top: 4px;
   border-radius: 20px;
-  width: fit-content;
-  font-family: "Amatic SC", cursive;
-  font-weight: normal;
+  color: white;
+  /* margin: 5px; */
+  background-color: #0d5e8d;
+  box-shadow: rgba(0, 0, 0, 0.521) 0px 0px 5px 0px;
+  font-family: "Special Elite", cursive;
+  /* text-transform: uppercase; */
+  font-size: 1rem;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 header button:hover,
@@ -151,22 +155,25 @@ footer {
   justify-content: center;
   flex-direction: column;
   gap: 10px;
+  font-size: 0.75rem;
 }
-footer span {
-  padding: 2px 20px;
-  margin-left: 15px;
-  /* margin-right: 10px; */
-  background-color: #0d5e8d;
-  color: white;
+footer div span {
+  padding: 1px 15px;
+  padding-top: 4px;
   border-radius: 20px;
-  width: fit-content;
-  font-family: "Amatic SC", cursive;
+  color: white;
+  background-color: #0d5e8d;
+  box-shadow: rgba(0, 0, 0, 0.521) 0px 0px 5px 0px;
+  font-family: "Special Elite", cursive;
+  font-size: 0.75rem;
+  margin-left: 10px;
 }
 
-footer span:hover {
+footer div span:hover {
   background-color: #fd6633;
   cursor: pointer;
-  padding: 1px 15px;
+  font-size: 0.7rem;
+  padding-top: 4px;
 }
 footer div:last-child {
   margin-right: 0;
